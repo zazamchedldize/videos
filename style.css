@@ -63,7 +63,6 @@ body {
     cursor: pointer;
 }
 
-/* BUTTON */
 .login-box button {
     width: 100%;
     padding: 12px;
@@ -82,13 +81,12 @@ body {
     box-shadow: 0 0 20px #00f0ff, 0 0 40px #ff00ff;
 }
 
-/* ERROR */
 #error {
     margin-top: 10px;
     color: #ff4d4d;
 }
 
-/* ========================= LOADING SCREEN ========================= */
+/* ========================= LOADING ========================= */
 #loading {
     position: fixed;
     inset: 0;
@@ -127,7 +125,7 @@ header {
     text-shadow: 0 0 20px #ff00ff;
 }
 
-/* ========================= PROFILE BOX ========================= */
+/* ========================= PROFILE ========================= */
 .profile-box {
     position: absolute;
     top: 15px;
@@ -138,15 +136,15 @@ header {
 
     background: linear-gradient(135deg, rgba(0,240,255,0.18), rgba(255,0,255,0.10));
     border: 1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(12px);
 
+    backdrop-filter: blur(12px);
     box-shadow: 0 0 20px rgba(0,240,255,0.25);
 }
 
 .profile-box #userEmail {
     font-size: 14px;
     font-weight: bold;
-    color: #fff;
+    color: white;
 }
 
 .profile-box #userRole {
@@ -166,38 +164,38 @@ header {
     text-shadow: 0 0 10px #00f0ff;
 }
 
-/* ========================= SIDEBAR PANEL (FINAL) ========================= */
+/* ========================= SIDEBAR (FIXED + BIGGER) ========================= */
 .sidebar {
     position: fixed;
-    left: 0;
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
 
-    width: 70px;
-    height: 240px;
+    width: 85px;
+    height: 320px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 16px;
 
-    padding: 10px;
+    padding: 12px;
 
-    background: rgba(20, 20, 30, 0.6);
+    background: rgba(20, 20, 30, 0.65);
     backdrop-filter: blur(18px);
 
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
 
     border-right: 1px solid rgba(0, 240, 255, 0.25);
 
     box-shadow:
-        0 0 20px rgba(0, 240, 255, 0.2),
+        0 0 25px rgba(0, 240, 255, 0.25),
         inset 0 0 10px rgba(255, 255, 255, 0.05);
 }
 
-/* BUTTONS */
+/* sidebar buttons */
 .sidebar button {
     width: 48px;
     height: 48px;
@@ -207,56 +205,20 @@ header {
 
     cursor: pointer;
 
+    background: rgba(255,255,255,0.06);
     color: white;
-    font-size: 18px;
-
-    background: rgba(255, 255, 255, 0.06);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     transition: 0.3s;
-
-    position: relative;
-    overflow: hidden;
 }
 
-/* LIGHT EFFECT */
-.sidebar button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 100%;
-    height: 100%;
-
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(0, 240, 255, 0.4),
-        rgba(255, 0, 255, 0.4),
-        transparent
-    );
-
-    transition: 0.5s;
-}
-
-/* HOVER */
 .sidebar button:hover {
     transform: scale(1.15);
     background: linear-gradient(90deg, #00f0ff, #ff00ff);
     color: black;
-
-    box-shadow: 0 0 20px #00f0ff;
-}
-
-.sidebar button:hover::before {
-    left: 120%;
-}
-
-.sidebar button:active {
-    transform: scale(0.9);
 }
 
 /* ========================= SEARCH ========================= */
@@ -270,19 +232,21 @@ header {
     width: 420px;
     max-width: 90%;
     padding: 14px;
+    border-radius: 12px;
     border: none;
     outline: none;
-    border-radius: 12px;
     background: rgba(255,255,255,0.08);
     color: white;
 }
 
-/* ========================= VIDEO GRID ========================= */
+/* ========================= VIDEO GRID (SHIFT RIGHT FIX) ========================= */
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 22px;
-    padding: 20px 60px;
+
+    padding: 20px 40px;
+    margin-left: 110px; /* IMPORTANT FIX */
 }
 
 /* VIDEO CARD */
@@ -307,24 +271,38 @@ video {
     background: black;
 }
 
+/* TEXT FIX */
+.video-info {
+    padding: 12px;
+}
+
+.video-info h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: white;
+    text-shadow: 0 0 8px rgba(0,240,255,0.2);
+}
+
+.video-info p {
+    font-size: 13px;
+    color: #cfcfcf;
+}
+
 /* ========================= PHOTO GRID ========================= */
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 12px;
+
     padding: 20px 60px;
 }
 
-/* PHOTO CARD (GREEN GLOW) */
+/* GREEN PHOTO CARD */
 .photo-card {
     border-radius: 12px;
     overflow: hidden;
-
-    background: rgba(255,255,255,0.05);
     border: 1px solid rgba(0,255,120,0.3);
-
     box-shadow: 0 0 18px rgba(0,255,120,0.35);
-
     transition: 0.3s;
 }
 
@@ -337,9 +315,4 @@ video {
     width: 100%;
     height: 140px;
     object-fit: cover;
-}
-
-/* ========================= HIDE ========================= */
-.hidden {
-    display: none;
 }
