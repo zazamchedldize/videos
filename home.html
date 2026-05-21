@@ -8,7 +8,7 @@
 
 <body class="home-body">
 
-    <!-- 👤 PROFILE TOP LEFT -->
+    <!-- 🔥 PROFILE BOX -->
     <div class="profile-box">
         <div id="userEmail">email</div>
         <div id="userRole">role</div>
@@ -33,43 +33,58 @@
     <div class="video-grid" id="videoGrid">
 
         <div class="video-card">
-            <video class="video" controlsList="nodownload noplaybackrate" disablePictureInPicture controls src="videos/video1.mp4"></video>
-            <div class="video-info">
-                <h3>კუბლას გაპარვა</h3>
-            </div>
+            <video controls src="videos/video1.mp4"></video>
+            <div class="video-info"><h3>კუბლას გაპარვა</h3></div>
         </div>
 
         <div class="video-card">
-            <video class="video" controlsList="nodownload noplaybackrate" disablePictureInPicture controls src="videos/video2.mp4"></video>
-            <div class="video-info">
-                <h3>Damon Vs Elena</h3>
-            </div>
+            <video controls src="videos/video2.mp4"></video>
+            <div class="video-info"><h3>Damon Vs Elena</h3></div>
         </div>
 
         <div class="video-card">
-            <video class="video" controlsList="nodownload noplaybackrate" disablePictureInPicture controls src="videos/video3.mp4"></video>
-            <div class="video-info">
-                <h3>Hokage</h3>
-            </div>
+            <video controls src="videos/video3.mp4"></video>
+            <div class="video-info"><h3>Hokage</h3></div>
         </div>
 
         <div class="video-card">
-            <video class="video" controlsList="nodownload noplaybackrate" disablePictureInPicture controls src="videos/video4.mp4"></video>
-            <div class="video-info">
-                <h3>Gigi Vs Ani</h3>
-            </div>
+            <video controls src="videos/video4.mp4"></video>
+            <div class="video-info"><h3>Gigi Vs Ani</h3></div>
         </div>
 
         <div class="video-card">
-            <video class="video" controlsList="nodownload noplaybackrate" disablePictureInPicture controls src="videos/video5.mp4"></video>
-            <div class="video-info">
-                <h3>აბანცულა რანცულა</h3>
-            </div>
+            <video controls src="videos/video5.mp4"></video>
+            <div class="video-info"><h3>აბანცულა რანცულა</h3></div>
+        </div>
+
+        <div class="video-card">
+            <video controls src="videos/video6.mp4"></video>
+            <div class="video-info"><h3>ანის ჟღვინტი</h3></div>
+        </div>
+
+        <div class="video-card">
+            <video controls src="videos/video7.mp4"></video>
+            <div class="video-info"><h3>ანის შესრულება</h3></div>
+        </div>
+
+        <div class="video-card">
+            <video controls src="videos/video8.mp4"></video>
+            <div class="video-info"><h3>Video 8</h3></div>
+        </div>
+
+        <div class="video-card">
+            <video controls src="videos/video9.mp4"></video>
+            <div class="video-info"><h3>Video 9</h3></div>
+        </div>
+
+        <div class="video-card">
+            <video controls src="videos/video10.mp4"></video>
+            <div class="video-info"><h3>Video 10</h3></div>
         </div>
 
     </div>
 
-    <!-- SEARCH -->
+    <!-- SEARCH SCRIPT -->
     <script>
         function searchVideos() {
 
@@ -85,23 +100,13 @@
         }
     </script>
 
-    <!-- 🔥 ROLE + PROFILE SYSTEM -->
+    <!-- 🔥 PROFILE + ROLE SYSTEM -->
     <script>
         const email = localStorage.getItem("userEmail");
         const role = localStorage.getItem("userRole");
 
         document.getElementById("userEmail").textContent = email || "Guest";
         document.getElementById("userRole").textContent = role || "Visitor";
-
-        // 🔥 ADMIN ONLY download override protection
-        document.querySelectorAll("video").forEach(v => {
-
-            if (role !== "admin") {
-                v.addEventListener("contextmenu", e => e.preventDefault());
-                v.setAttribute("controlsList", "nodownload noplaybackrate noremoteplayback");
-            }
-
-        });
     </script>
 
 </body>
