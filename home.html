@@ -23,47 +23,57 @@
     <input type="text" id="searchInput" onkeyup="searchVideos()" placeholder="Search...">
 </div>
 
-<!-- VIDEOS -->
+<!-- VIDEO GRID -->
 <div class="video-grid">
 
     <div class="video-card">
         <video controls src="videos/video1.mp4"></video>
-        <div class="video-info">
-            <h3>კუბლას გაპარვა</h3>
-            <button class="download-btn" data-src="videos/video1.mp4">Download</button>
-        </div>
+        <div class="video-info"><h3>კუბლას გაპარვა</h3></div>
     </div>
 
     <div class="video-card">
         <video controls src="videos/video2.mp4"></video>
-        <div class="video-info">
-            <h3>Damon Vs Elena</h3>
-            <button class="download-btn" data-src="videos/video2.mp4">Download</button>
-        </div>
+        <div class="video-info"><h3>Damon Vs Elena</h3></div>
     </div>
 
     <div class="video-card">
         <video controls src="videos/video3.mp4"></video>
-        <div class="video-info">
-            <h3>Hokage</h3>
-            <button class="download-btn" data-src="videos/video3.mp4">Download</button>
-        </div>
+        <div class="video-info"><h3>Hokage</h3></div>
     </div>
 
     <div class="video-card">
         <video controls src="videos/video4.mp4"></video>
-        <div class="video-info">
-            <h3>Gigi Vs Ani</h3>
-            <button class="download-btn" data-src="videos/video4.mp4">Download</button>
-        </div>
+        <div class="video-info"><h3>Gigi Vs Ani</h3></div>
     </div>
 
     <div class="video-card">
         <video controls src="videos/video5.mp4"></video>
-        <div class="video-info">
-            <h3>Video 5</h3>
-            <button class="download-btn" data-src="videos/video5.mp4">Download</button>
-        </div>
+        <div class="video-info"><h3>Video 5</h3></div>
+    </div>
+
+    <div class="video-card">
+        <video controls src="videos/video6.mp4"></video>
+        <div class="video-info"><h3>Video 6</h3></div>
+    </div>
+
+    <div class="video-card">
+        <video controls src="videos/video7.mp4"></video>
+        <div class="video-info"><h3>Video 7</h3></div>
+    </div>
+
+    <div class="video-card">
+        <video controls src="videos/video8.mp4"></video>
+        <div class="video-info"><h3>Video 8</h3></div>
+    </div>
+
+    <div class="video-card">
+        <video controls src="videos/video9.mp4"></video>
+        <div class="video-info"><h3>Video 9</h3></div>
+    </div>
+
+    <div class="video-card">
+        <video controls src="videos/video10.mp4"></video>
+        <div class="video-info"><h3>Video 10</h3></div>
     </div>
 
 </div>
@@ -78,35 +88,12 @@ const roleEl = document.getElementById("userRole");
 document.getElementById("userEmail").textContent = email || "Guest";
 roleEl.textContent = role || "Visitor";
 
-/* ROLE STYLE FIX */
+/* ROLE STYLE */
 if (role === "Admin") {
     roleEl.classList.add("admin");
 } else if (role === "Member") {
     roleEl.classList.add("member");
 }
-
-/* DOWNLOAD CONTROL */
-const isAdmin = role === "Admin";
-
-document.querySelectorAll(".video-card").forEach(card => {
-
-    const btn = card.querySelector(".download-btn");
-
-    if (!isAdmin && btn) {
-        btn.remove();
-    }
-
-    if (isAdmin && btn) {
-        btn.addEventListener("click", () => {
-            const src = btn.dataset.src;
-
-            const a = document.createElement("a");
-            a.href = src;
-            a.download = "video.mp4";
-            a.click();
-        });
-    }
-});
 
 /* SEARCH */
 function searchVideos() {
