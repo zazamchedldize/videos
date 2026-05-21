@@ -126,6 +126,33 @@ header {
     text-shadow: 0 0 20px #ff00ff;
 }
 
+/* ========================= PROFILE BOX (NEW) ========================= */
+.profile-box {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+
+    background: rgba(255,255,255,0.06);
+    padding: 10px 14px;
+    border-radius: 12px;
+
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+
+    box-shadow: 0 0 15px rgba(0,240,255,0.2);
+}
+
+.profile-box #userEmail {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.profile-box #userRole {
+    font-size: 12px;
+    color: #00f0ff;
+    margin-top: 4px;
+}
+
 /* ========================= SEARCH ========================= */
 .search-box {
     display: flex;
@@ -168,26 +195,22 @@ header {
     box-shadow: 0 0 25px #00f0ff, 0 0 40px rgba(255,0,255,0.2);
 }
 
-/* ========================= VIDEO FIX (IMPORTANT PART) ========================= */
+/* VIDEO */
 video {
     width: 100%;
-
-    /* preview size */
     height: 180px;
-
-    object-fit: cover; /* preview crop only */
-
+    object-fit: cover;
     background: black;
     display: block;
 }
 
-/* 🔥 FULL FIX FOR PLAY MODE (NO STRETCH EVER) */
+/* FULLSCREEN FIX */
 video:fullscreen {
     object-fit: contain !important;
     height: auto !important;
 }
 
-/* ========================= TEXT ========================= */
+/* TEXT */
 .video-info {
     padding: 12px;
 }
@@ -202,7 +225,7 @@ video:fullscreen {
     color: #aaa;
 }
 
-/* ========================= SEARCH HIDE ========================= */
+/* SEARCH HIDE */
 .video-card.hide {
     opacity: 0;
     transform: scale(0.9);
