@@ -156,7 +156,6 @@ header {
     color: #ffffff;
 }
 
-/* 🔥 ROLE DESIGN ADDED */
 .profile-box #userRole {
     font-size: 12px;
     margin-top: 4px;
@@ -164,13 +163,11 @@ header {
     font-weight: bold;
 }
 
-/* ADMIN STYLE */
 .profile-box #userRole.admin {
     color: #00ff99;
     text-shadow: 0 0 10px #00ff99;
 }
 
-/* MEMBER STYLE */
 .profile-box #userRole.member {
     color: #00f0ff;
     text-shadow: 0 0 10px #00f0ff;
@@ -227,10 +224,41 @@ video {
     display: block;
 }
 
-/* FULLSCREEN FIX */
 video:fullscreen {
     object-fit: contain !important;
     height: auto !important;
+}
+
+/* ========================= PHOTO GRID (ADDED) ========================= */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    padding: 20px 40px;
+}
+
+.photo-card {
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.3s;
+}
+
+.photo-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00f0ff;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+/* ========================= SECTION CONTROL (ADDED) ========================= */
+.hidden {
+    display: none;
 }
 
 /* ========================= TEXT ========================= */
