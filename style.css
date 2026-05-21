@@ -10,18 +10,7 @@ body {
     min-height: 100vh;
     background: radial-gradient(circle at top, #0f0f1a, #000);
     color: white;
-}
-
-/* ========================= LOGIN (თუ გაქვს) ========================= */
-.login-box {
-    width: 340px;
-    margin: 120px auto;
-    padding: 35px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(14px);
-    border-radius: 18px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
+    overflow-x: hidden;
 }
 
 /* ========================= PROFILE ========================= */
@@ -33,7 +22,7 @@ body {
     padding: 12px 16px;
     border-radius: 14px;
 
-    background: rgba(0,0,0,0.55);
+    background: rgba(10,10,20,0.6);
     border: 1px solid rgba(0,240,255,0.25);
 
     backdrop-filter: blur(12px);
@@ -42,83 +31,74 @@ body {
     z-index: 1000;
 }
 
-#userEmail {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-#userRole {
-    font-size: 12px;
-    margin-top: 3px;
-    opacity: 0.8;
-}
-
-/* ROLE COLORS */
-#userRole.admin {
-    color: #00ff99;
-    text-shadow: 0 0 10px #00ff99;
-}
-
-#userRole.member {
-    color: #00f0ff;
-    text-shadow: 0 0 10px #00f0ff;
-}
-
-/* ========================= SIDEBAR ========================= */
+/* ========================= SIDEBAR (ULTRA CLEAN) ========================= */
 .sidebar {
     position: fixed;
-    left: 15px;
+    left: 20px;
     top: 50%;
     transform: translateY(-50%);
 
-    width: 90px;
-    height: 220px;
+    width: 85px;
+    padding: 18px 10px;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 15px;
+    gap: 18px;
 
-    background: rgba(20,20,30,0.6);
-    border-radius: 18px;
+    border-radius: 22px;
 
+    background: rgba(255,255,255,0.05);
     border: 1px solid rgba(0,240,255,0.25);
 
-    box-shadow: 0 0 25px rgba(0,240,255,0.15);
+    backdrop-filter: blur(15px);
 
-    z-index: 999;
+    box-shadow:
+        0 0 25px rgba(0,240,255,0.15),
+        inset 0 0 20px rgba(255,255,255,0.03);
 }
 
 /* SIDEBAR BUTTONS */
 .sidebar button {
     width: 60px;
     height: 60px;
-    margin: auto;
 
     border: none;
-    border-radius: 12px;
+    border-radius: 16px;
 
     cursor: pointer;
 
     background: rgba(255,255,255,0.06);
     color: white;
 
-    transition: 0.3s ease;
-    font-size: 18px;
+    font-size: 16px;
+
+    transition: 0.35s ease;
+    position: relative;
 }
 
+/* HOVER GLOW */
 .sidebar button:hover {
-    transform: scale(1.15);
-    background: linear-gradient(90deg, #00f0ff, #ff00ff);
+    transform: translateY(-5px) scale(1.1);
+    background: linear-gradient(135deg, #00f0ff, #ff00ff);
     color: black;
-    box-shadow: 0 0 20px #00f0ff;
+
+    box-shadow:
+        0 0 20px #00f0ff,
+        0 0 40px rgba(255,0,255,0.4);
+}
+
+/* ACTIVE EFFECT */
+.sidebar button.active {
+    background: linear-gradient(135deg, #00f0ff, #00ff99);
+    color: black;
+    box-shadow: 0 0 25px #00f0ff;
 }
 
 /* ========================= HEADER ========================= */
 header {
     text-align: center;
     padding: 25px;
-    font-size: 24px;
+    font-size: 26px;
     text-shadow: 0 0 20px #ff00ff;
 }
 
@@ -132,12 +112,13 @@ header {
 .search-box input {
     width: 420px;
     max-width: 90%;
+
     padding: 14px;
+    border-radius: 12px;
 
     border: none;
     outline: none;
 
-    border-radius: 12px;
     background: rgba(255,255,255,0.08);
     color: white;
 
@@ -156,9 +137,10 @@ header {
 
 /* VIDEO CARD */
 .video-card {
-    background: rgba(255,255,255,0.05);
     border-radius: 18px;
     overflow: hidden;
+
+    background: rgba(255,255,255,0.05);
 
     border: 1px solid rgba(255,255,255,0.08);
 
@@ -170,29 +152,24 @@ header {
     box-shadow: 0 0 25px #00f0ff;
 }
 
-/* VIDEO FIX (NO STRETCH) */
+/* VIDEO */
 video {
     width: 100%;
     height: 190px;
     object-fit: cover;
     background: black;
-    display: block;
 }
 
-/* VIDEO TEXT */
+/* TEXT */
 .video-info {
     padding: 10px;
 }
 
-.video-info h3 {
-    font-size: 14px;
-}
-
-/* ========================= PHOTOS ========================= */
+/* ========================= PHOTO GRID ========================= */
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 120px);
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, 140px);
+    gap: 12px;
 
     padding: 20px;
     margin-left: 120px;
@@ -200,22 +177,56 @@ video {
 
 /* PHOTO CARD */
 .photo-card {
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
 
+    cursor: pointer;
+
     box-shadow: 0 0 18px #00ff66;
+
     transition: 0.3s;
 }
 
 .photo-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px #00ff66;
+    transform: scale(1.07);
+    box-shadow: 0 0 35px #00ff66;
 }
 
 .photo-card img {
     width: 100%;
-    height: 120px;
+    height: 130px;
     object-fit: cover;
+}
+
+/* ========================= MODAL (PHOTO + VIDEO OPEN) ========================= */
+.modal {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.92);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+
+    box-shadow: 0 0 40px #00f0ff;
+}
+
+.modal img,
+.modal video {
+    max-width: 100%;
+    max-height: 90vh;
+
+    object-fit: contain;
+    border-radius: 12px;
 }
 
 /* ========================= HIDDEN ========================= */
