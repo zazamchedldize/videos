@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <title>ვიდეოები</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home-body">
+
+    <!-- HEADER -->
+    <header>
+        <h1>🎬 ვიდეოები</h1>
+    </header>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 მოძებნე ვიდეო..."
+            onkeyup="searchVideos()"
+        >
+    </div>
+
+    <!-- VIDEO GRID -->
+    <div class="video-grid" id="videoGrid">
+
+        <!-- VIDEO 1 -->
+        <div class="video-card">
+            <video controls src="videos/video1.mp4"></video>
+
+            <div class="video-info">
+                <h3>კუბლას გაპარვა</h3>
+                <p>🔥 პოპულარული ვიდეო</p>
+            </div>
+        </div>
+
+        <!-- VIDEO 2 -->
+        <div class="video-card">
+            <video controls src="videos/video2.mp4"></video>
+
+            <div class="video-info">
+                <h3>Damon Vs Elena</h3>
+                <p>💜 Vampire Diaries Edit</p>
+            </div>
+        </div>
+
+        <!-- VIDEO 3 -->
+        <div class="video-card">
+            <video controls src="videos/video3.mp4"></video>
+
+            <div class="video-info">
+                <h3>Hokage</h3>
+                <p>⚡ Anime Moments</p>
+            </div>
+        </div>
+
+        <!-- VIDEO 4 -->
+        <div class="video-card">
+            <video controls src="videos/video4.mp4"></video>
+
+            <div class="video-info">
+                <h3>Gigi Vs Ani</h3>
+                <p>🎭 Funny Edit</p>
+            </div>
+        </div>
+
+        <!-- VIDEO 5 -->
+        <div class="video-card">
+            <video controls src="videos/video5.mp4"></video>
+
+            <div class="video-info">
+                <h3>აბანცულა რანცულა</h3>
+                <p>საბას სიმღერა</p>
+            </div>
+        </div>
+
+        <!-- VIDEO 6 -->
+        <div class="video-card">
+            <video controls src="videos/video6.mp4"></video>
+
+            <div class="video-info">
+                <h3>ანის ჟღვინტი</h3>
+                <p>ცხვირის გაწმენდა</p>
+            </div>
+        </div>
+
+        <!-- VIDEO 7 -->
+        <div class="video-card">
+            <video controls src="videos/video7.mp4"></video>
+
+            <div class="video-info">
+                <h3>ანის შესრულება</h3>
+                <p>ცეკვა</p>
+            </div>
+        </div>
+
+        <!-- VIDEO 8 -->
+        <div class="video-card">
+            <video controls src="videos/video8.mp4"></video>
+
+            <div class="video-info">
+                <h3>Video 8</h3>
+                <p></p>
+            </div>
+        </div>
+
+        <!-- VIDEO 9 -->
+        <div class="video-card">
+            <video controls src="videos/video9.mp4"></video>
+
+            <div class="video-info">
+                <h3>Video 9</h3>
+                <p></p>
+            </div>
+        </div>
+
+        <!-- VIDEO 10 -->
+        <div class="video-card">
+            <video controls src="videos/video10.mp4"></video>
+
+            <div class="video-info">
+                <h3>Video 10</h3>
+                <p></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SEARCH SCRIPT -->
+    <script>
+        function searchVideos() {
+
+            let input =
+                document
+                .getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+            let cards =
+                document
+                .querySelectorAll(".video-card");
+
+            cards.forEach(card => {
+
+                let title =
+                    card
+                    .querySelector("h3")
+                    .textContent
+                    .toLowerCase();
+
+                if (title.includes(input)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+
+            });
+        }
+    </script>
+
+</body>
+</html>
