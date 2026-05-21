@@ -2,7 +2,7 @@
 <html lang="ka">
 <head>
     <meta charset="UTF-8">
-    <title>Media Hub</title>
+    <title>Videos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,67 +14,71 @@
     <div id="userRole"></div>
 </div>
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-    <button onclick="showSection('videos')">🎬 Videos</button>
-    <button onclick="showSection('photos')">📸 Photos</button>
-</div>
-
 <header>
-    <h1>🎬 Media Hub</h1>
+    <h1>🎬 ვიდეოები</h1>
 </header>
 
 <!-- SEARCH -->
 <div class="search-box">
-    <input type="text" id="searchInput" onkeyup="searchVideos()" placeholder="Search videos...">
+    <input type="text" id="searchInput" onkeyup="searchVideos()" placeholder="Search...">
 </div>
 
-<!-- ================= VIDEOS ================= -->
-<div class="video-grid section" id="videos">
+<!-- VIDEO GRID -->
+<div class="video-grid">
 
-    <!-- შენი 10 ვიდეო -->
-    <div class="video-card"><video controls src="videos/video1.mp4"></video><div class="video-info"><h3>კუბლას გაპარვა</h3></div></div>
-    <div class="video-card"><video controls src="videos/video2.mp4"></video><div class="video-info"><h3>Damon Vs Elena</h3></div></div>
-    <div class="video-card"><video controls src="videos/video3.mp4"></video><div class="video-info"><h3>ლუკას girl voice</h3></div></div>
-    <div class="video-card"><video controls src="videos/video4.mp4"></video><div class="video-info"><h3>Gigi Vs Ani</h3></div></div>
-    <div class="video-card"><video controls src="videos/video5.mp4"></video><div class="video-info"><h3>აბანცულა რანცულა</h3></div></div>
-    <div class="video-card"><video controls src="videos/video6.mp4"></video><div class="video-info"><h3>ანის boogers</h3></div></div>
-    <div class="video-card"><video controls src="videos/video7.mp4"></video><div class="video-info"><h3>კლოუნი</h3></div></div>
-    <div class="video-card"><video controls src="videos/video8.mp4"></video><div class="video-info"><h3>გააჩუმე ენა არ გესმის?</h3></div></div>
-    <div class="video-card"><video controls src="videos/video9.mp4"></video><div class="video-info"><h3>ვაიმე დედა</h3></div></div>
-    <div class="video-card"><video controls src="videos/video10.mp4"></video><div class="video-info"><h3>ფეროს გიო vs საბა</h3></div></div>
+    <div class="video-card">
+        <video controls src="videos/video1.mp4"></video>
+        <div class="video-info"><h3>კუბლას გაპარვა</h3></div>
+    </div>
 
-    <!-- +10 ახალი ვიდეო -->
-    <div class="video-card"><video controls src="videos/video11.mp4"></video><div class="video-info"><h3>Video 11</h3></div></div>
-    <div class="video-card"><video controls src="videos/video12.mp4"></video><div class="video-info"><h3>Video 12</h3></div></div>
-    <div class="video-card"><video controls src="videos/video13.mp4"></video><div class="video-info"><h3>Video 13</h3></div></div>
-    <div class="video-card"><video controls src="videos/video14.mp4"></video><div class="video-info"><h3>Video 14</h3></div></div>
-    <div class="video-card"><video controls src="videos/video15.mp4"></video><div class="video-info"><h3>Video 15</h3></div></div>
-    <div class="video-card"><video controls src="videos/video16.mp4"></video><div class="video-info"><h3>Video 16</h3></div></div>
-    <div class="video-card"><video controls src="videos/video17.mp4"></video><div class="video-info"><h3>Video 17</h3></div></div>
-    <div class="video-card"><video controls src="videos/video18.mp4"></video><div class="video-info"><h3>Video 18</h3></div></div>
-    <div class="video-card"><video controls src="videos/video19.mp4"></video><div class="video-info"><h3>Video 19</h3></div></div>
-    <div class="video-card"><video controls src="videos/video20.mp4"></video><div class="video-info"><h3>Video 20</h3></div></div>
+    <div class="video-card">
+        <video controls src="videos/video2.mp4"></video>
+        <div class="video-info"><h3>Damon Vs Elena</h3></div>
+    </div>
 
-</div>
+    <div class="video-card">
+        <video controls src="videos/video3.mp4"></video>
+        <div class="video-info"><h3>Hokage</h3></div>
+    </div>
 
-<!-- ================= PHOTOS ================= -->
-<div class="photo-grid section hidden" id="photos">
+    <div class="video-card">
+        <video controls src="videos/video4.mp4"></video>
+        <div class="video-info"><h3>Gigi Vs Ani</h3></div>
+    </div>
 
-    <script>
-        for (let i = 1; i <= 60; i++) {
-            document.write(`
-                <div class="photo-card">
-                    <img src="photos/${i}.jpg">
-                </div>
-            `);
-        }
-    </script>
+    <div class="video-card">
+        <video controls src="videos/video5.mp4"></video>
+        <div class="video-info"><h3>Video 5</h3></div>
+    </div>
+
+    <div class="video-card">
+        <video controls src="videos/video6.mp4"></video>
+        <div class="video-info"><h3>Video 6</h3></div>
+    </div>
+
+    <div class="video-card">
+        <video controls src="videos/video7.mp4"></video>
+        <div class="video-info"><h3>Video 7</h3></div>
+    </div>
+
+    <div class="video-card">
+        <video controls src="videos/video8.mp4"></video>
+        <div class="video-info"><h3>Video 8</h3></div>
+    </div>
+
+    <div class="video-card">
+        <video controls src="videos/video9.mp4"></video>
+        <div class="video-info"><h3>Video 9</h3></div>
+    </div>
+
+    <div class="video-card">
+        <video controls src="videos/video10.mp4"></video>
+        <div class="video-info"><h3>Video 10</h3></div>
+    </div>
 
 </div>
 
 <script>
-
 /* PROFILE */
 const email = localStorage.getItem("userEmail");
 const role = localStorage.getItem("userRole");
@@ -84,6 +88,7 @@ const roleEl = document.getElementById("userRole");
 document.getElementById("userEmail").textContent = email || "Guest";
 roleEl.textContent = role || "Visitor";
 
+/* ROLE STYLE */
 if (role === "Admin") {
     roleEl.classList.add("admin");
 } else if (role === "Member") {
@@ -93,22 +98,13 @@ if (role === "Admin") {
 /* SEARCH */
 function searchVideos() {
     let input = document.getElementById("searchInput").value.toLowerCase();
-    let cards = document.querySelectorAll("#videos .video-card");
+    let cards = document.querySelectorAll(".video-card");
 
     cards.forEach(card => {
         let title = card.querySelector("h3").textContent.toLowerCase();
         card.style.display = title.includes(input) ? "block" : "none";
     });
 }
-
-/* SWITCH SECTIONS */
-function showSection(section) {
-    document.getElementById("videos").classList.add("hidden");
-    document.getElementById("photos").classList.add("hidden");
-
-    document.getElementById(section).classList.remove("hidden");
-}
-
 </script>
 
 </body>
