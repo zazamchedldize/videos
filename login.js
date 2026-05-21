@@ -1,13 +1,26 @@
-const MY_EMAIL = "mchedlo@gmail.com";
-const MY_PASSWORD = "1234";
+const USERS = [
+    {
+        email: "mchedlo@gmail.com",
+        password: "1234"
+    },
+    {
+        email: "member@gmail.com",
+        password: "123"
+    }
+];
 
 function login() {
+
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const error = document.getElementById("error");
     const loading = document.getElementById("loading");
 
-    if (email === MY_EMAIL && password === MY_PASSWORD) {
+    const userFound = USERS.find(user =>
+        user.email === email && user.password === password
+    );
+
+    if (userFound) {
 
         loading.style.display = "flex";
 
