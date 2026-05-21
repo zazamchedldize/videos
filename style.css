@@ -1,4 +1,3 @@
-/* ========================= RESET ========================= */
 * {
     margin: 0;
     padding: 0;
@@ -11,257 +10,119 @@ body {
     min-height: 100vh;
     background: radial-gradient(circle at top, #0f0f1a, #000);
     color: white;
+    overflow-x: hidden;
 }
 
-/* ========================= LOGIN PAGE ========================= */
-.login-box {
-    width: 340px;
-    margin: 120px auto;
-    padding: 35px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(14px);
-    border-radius: 18px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 25px rgba(0,240,255,0.25),
-                0 0 50px rgba(255,0,255,0.1);
-    animation: floatBox 4s ease-in-out infinite;
-}
-
-@keyframes floatBox {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-
-.login-box h1 {
-    margin-bottom: 20px;
-    font-size: 32px;
-    text-shadow: 0 0 10px #00f0ff, 0 0 20px #ff00ff;
-}
-
-.login-box input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.08);
-    color: white;
-}
-
-.password-box {
-    position: relative;
-}
-
-.password-box span {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-/* BUTTON */
-.login-box button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    background: linear-gradient(90deg, #00f0ff, #ff00ff);
-    color: black;
-    transition: 0.3s;
-}
-
-.login-box button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #00f0ff, 0 0 40px #ff00ff;
-}
-
-/* ERROR */
-#error {
-    margin-top: 10px;
-    color: #ff4d4d;
-}
-
-/* ========================= LOADING SCREEN ========================= */
-#loading {
-    position: fixed;
-    inset: 0;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: rgba(0,0,0,0.95);
-    z-index: 999;
-}
-
-.spinner {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 6px solid rgba(255,255,255,0.1);
-    border-top: 6px solid #00f0ff;
-    animation: spin 1s linear infinite;
-    box-shadow: 0 0 20px #00f0ff;
-}
-
-@keyframes spin {
-    100% { transform: rotate(360deg); }
-}
-
-/* ========================= HOME PAGE ========================= */
-.home-body {
-    background: linear-gradient(135deg, #050510, #000);
-}
-
-/* HEADER */
-header {
-    text-align: center;
-    padding: 25px;
-    font-size: 24px;
-    text-shadow: 0 0 20px #ff00ff;
-}
-
-/* ========================= PROFILE BOX ========================= */
+/* ========================= PROFILE ========================= */
 .profile-box {
-    position: absolute;
+    position: fixed;
     top: 15px;
     left: 15px;
 
     padding: 12px 16px;
     border-radius: 14px;
 
-    background: linear-gradient(135deg, rgba(0,240,255,0.18), rgba(255,0,255,0.10));
-    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(10,10,20,0.6);
+    border: 1px solid rgba(0,240,255,0.25);
+
     backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px rgba(0,240,255,0.2);
 
-    box-shadow: 0 0 20px rgba(0,240,255,0.25);
+    z-index: 1000;
 }
 
-.profile-box #userEmail {
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-}
-
-.profile-box #userRole {
-    font-size: 12px;
-    margin-top: 4px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.profile-box #userRole.admin {
-    color: #00ff99;
-    text-shadow: 0 0 10px #00ff99;
-}
-
-.profile-box #userRole.member {
-    color: #00f0ff;
-    text-shadow: 0 0 10px #00f0ff;
-}
-
-/* ========================= SIDEBAR (FINAL PREMIUM) ========================= */
+/* ========================= SIDEBAR (ULTRA CLEAN) ========================= */
 .sidebar {
     position: fixed;
-    left: 18px;
+    left: 20px;
     top: 50%;
     transform: translateY(-50%);
 
+    width: 85px;
+    padding: 18px 10px;
+
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 18px;
 
-    padding: 14px;
-    border-radius: 18px;
+    border-radius: 22px;
 
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(16px);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(0,240,255,0.25);
 
-    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(15px);
 
     box-shadow:
-        0 0 18px rgba(0,240,255,0.15),
-        inset 0 0 10px rgba(255,255,255,0.05);
+        0 0 25px rgba(0,240,255,0.15),
+        inset 0 0 20px rgba(255,255,255,0.03);
 }
 
-/* BUTTONS */
+/* SIDEBAR BUTTONS */
 .sidebar button {
-    padding: 12px 18px;
+    width: 60px;
+    height: 60px;
+
     border: none;
-    border-radius: 14px;
+    border-radius: 16px;
 
     cursor: pointer;
 
-    font-size: 14px;
-    font-weight: bold;
+    background: rgba(255,255,255,0.06);
     color: white;
 
-    background: rgba(255,255,255,0.07);
+    font-size: 16px;
 
-    transition: all 0.35s ease;
-
+    transition: 0.35s ease;
     position: relative;
-    overflow: hidden;
 }
 
-/* LIGHT EFFECT */
-.sidebar button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(0,240,255,0.3),
-        rgba(255,0,255,0.3),
-        transparent
-    );
-    transition: 0.5s;
-}
-
-/* HOVER */
+/* HOVER GLOW */
 .sidebar button:hover {
-    transform: translateX(6px) scale(1.08);
+    transform: translateY(-5px) scale(1.1);
+    background: linear-gradient(135deg, #00f0ff, #ff00ff);
     color: black;
 
-    background: linear-gradient(90deg, #00f0ff, #ff00ff);
-
-    box-shadow: 0 0 20px #00f0ff, 0 0 40px rgba(255,0,255,0.4);
+    box-shadow:
+        0 0 20px #00f0ff,
+        0 0 40px rgba(255,0,255,0.4);
 }
 
-.sidebar button:hover::before {
-    left: 100%;
+/* ACTIVE EFFECT */
+.sidebar button.active {
+    background: linear-gradient(135deg, #00f0ff, #00ff99);
+    color: black;
+    box-shadow: 0 0 25px #00f0ff;
 }
 
-.sidebar button:active {
-    transform: scale(0.95);
+/* ========================= HEADER ========================= */
+header {
+    text-align: center;
+    padding: 25px;
+    font-size: 26px;
+    text-shadow: 0 0 20px #ff00ff;
 }
 
 /* ========================= SEARCH ========================= */
 .search-box {
     display: flex;
     justify-content: center;
-    margin: 20px 0 30px 0;
+    margin: 20px 0 30px;
 }
 
 .search-box input {
     width: 420px;
     max-width: 90%;
+
     padding: 14px;
+    border-radius: 12px;
+
     border: none;
     outline: none;
-    border-radius: 12px;
+
     background: rgba(255,255,255,0.08);
     color: white;
+
+    box-shadow: 0 0 15px rgba(0,240,255,0.15);
 }
 
 /* ========================= VIDEO GRID ========================= */
@@ -269,15 +130,20 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 22px;
-    padding: 20px 60px;
+
+    padding: 20px;
+    margin-left: 120px;
 }
 
 /* VIDEO CARD */
 .video-card {
-    background: rgba(255,255,255,0.05);
     border-radius: 18px;
     overflow: hidden;
+
+    background: rgba(255,255,255,0.05);
+
     border: 1px solid rgba(255,255,255,0.08);
+
     transition: 0.3s;
 }
 
@@ -289,43 +155,81 @@ header {
 /* VIDEO */
 video {
     width: 100%;
-    height: 180px;
+    height: 190px;
     object-fit: cover;
     background: black;
+}
+
+/* TEXT */
+.video-info {
+    padding: 10px;
 }
 
 /* ========================= PHOTO GRID ========================= */
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, 140px);
     gap: 12px;
-    padding: 20px 60px;
+
+    padding: 20px;
+    margin-left: 120px;
 }
 
+/* PHOTO CARD */
 .photo-card {
     border-radius: 12px;
     overflow: hidden;
 
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(0,255,120,0.25);
+    cursor: pointer;
 
-    box-shadow: 0 0 15px rgba(0,255,120,0.35);
+    box-shadow: 0 0 18px #00ff66;
 
     transition: 0.3s;
 }
 
 .photo-card:hover {
     transform: scale(1.07);
-    box-shadow: 0 0 30px #00ff66;
+    box-shadow: 0 0 35px #00ff66;
 }
 
 .photo-card img {
     width: 100%;
-    height: 140px;
+    height: 130px;
     object-fit: cover;
 }
 
-/* ========================= HIDE ========================= */
-.hidden {
+/* ========================= MODAL (PHOTO + VIDEO OPEN) ========================= */
+.modal {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.92);
+
     display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+
+    box-shadow: 0 0 40px #00f0ff;
+}
+
+.modal img,
+.modal video {
+    max-width: 100%;
+    max-height: 90vh;
+
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* ========================= HIDDEN ========================= */
+.hidden {
+    display: none !important;
 }
