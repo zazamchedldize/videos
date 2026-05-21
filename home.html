@@ -32,7 +32,9 @@
 
             <div class="video-info">
                 <h3>კუბლას გაპარვა</h3>
-                <p>🔥 პოპულარული ვიდეო</p>
+                <p>prison break</p>
+
+                <button class="download-btn" data-src="videos/video1.mp4">⬇ Download</button>
             </div>
         </div>
 
@@ -42,7 +44,9 @@
 
             <div class="video-info">
                 <h3>Damon Vs Elena</h3>
-                <p>💜 Vampire Diaries Edit</p>
+                <p>love story</p>
+
+                <button class="download-btn" data-src="videos/video2.mp4">⬇ Download</button>
             </div>
         </div>
 
@@ -52,7 +56,9 @@
 
             <div class="video-info">
                 <h3>Hokage</h3>
-                <p>⚡ Anime Moments</p>
+                <p>ლუკა ყ*ეა</p>
+
+                <button class="download-btn" data-src="videos/video3.mp4">⬇ Download</button>
             </div>
         </div>
 
@@ -62,7 +68,9 @@
 
             <div class="video-info">
                 <h3>Gigi Vs Ani</h3>
-                <p>🎭 Funny Edit</p>
+                <p>კრივი</p>
+
+                <button class="download-btn" data-src="videos/video4.mp4">⬇ Download</button>
             </div>
         </div>
 
@@ -73,6 +81,8 @@
             <div class="video-info">
                 <h3>აბანცულა რანცულა</h3>
                 <p>საბას სიმღერა</p>
+
+                <button class="download-btn" data-src="videos/video5.mp4">⬇ Download</button>
             </div>
         </div>
 
@@ -83,6 +93,8 @@
             <div class="video-info">
                 <h3>ანის ჟღვინტი</h3>
                 <p>ცხვირის გაწმენდა</p>
+
+                <button class="download-btn" data-src="videos/video6.mp4">⬇ Download</button>
             </div>
         </div>
 
@@ -93,6 +105,8 @@
             <div class="video-info">
                 <h3>ანის შესრულება</h3>
                 <p>ცეკვა</p>
+
+                <button class="download-btn" data-src="videos/video7.mp4">⬇ Download</button>
             </div>
         </div>
 
@@ -102,7 +116,8 @@
 
             <div class="video-info">
                 <h3>Video 8</h3>
-                <p></p>
+
+                <button class="download-btn" data-src="videos/video8.mp4">⬇ Download</button>
             </div>
         </div>
 
@@ -112,7 +127,8 @@
 
             <div class="video-info">
                 <h3>Video 9</h3>
-                <p></p>
+
+                <button class="download-btn" data-src="videos/video9.mp4">⬇ Download</button>
             </div>
         </div>
 
@@ -122,7 +138,8 @@
 
             <div class="video-info">
                 <h3>Video 10</h3>
-                <p></p>
+
+                <button class="download-btn" data-src="videos/video10.mp4">⬇ Download</button>
             </div>
         </div>
 
@@ -132,32 +149,41 @@
     <script>
         function searchVideos() {
 
-            let input =
-                document
-                .getElementById("searchInput")
-                .value
-                .toLowerCase();
-
-            let cards =
-                document
-                .querySelectorAll(".video-card");
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let cards = document.querySelectorAll(".video-card");
 
             cards.forEach(card => {
 
-                let title =
-                    card
-                    .querySelector("h3")
-                    .textContent
-                    .toLowerCase();
+                let title = card.querySelector("h3").textContent.toLowerCase();
 
-                if (title.includes(input)) {
-                    card.style.display = "block";
-                } else {
-                    card.style.display = "none";
+                card.style.display = title.includes(input) ? "block" : "none";
+            });
+        }
+    </script>
+
+    <!-- 🔥 DOWNLOAD + ROLE SYSTEM -->
+    <script>
+        const role = localStorage.getItem("userRole");
+
+        document.querySelectorAll(".download-btn").forEach(btn => {
+
+            // თუ admin არ არის → დამალე download
+            if (role !== "admin") {
+                btn.style.display = "none";
+            }
+
+            btn.addEventListener("click", () => {
+
+                if (role === "admin") {
+                    const a = document.createElement("a");
+                    a.href = btn.dataset.src;
+                    a.download = "video.mp4";
+                    a.click();
                 }
 
             });
-        }
+
+        });
     </script>
 
 </body>
