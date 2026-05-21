@@ -8,6 +8,12 @@
 
 <body class="home-body">
 
+    <!-- 👤 PROFILE TOP LEFT -->
+    <div class="profile-box">
+        <div id="userEmail">email</div>
+        <div id="userRole">role</div>
+    </div>
+
     <!-- HEADER -->
     <header>
         <h1>🎬 ვიდეოები</h1>
@@ -26,126 +32,44 @@
     <!-- VIDEO GRID -->
     <div class="video-grid" id="videoGrid">
 
-        <!-- VIDEO 1 -->
         <div class="video-card">
-            <video controls src="videos/video1.mp4"></video>
-
+            <video class="video" controlsList="nodownload noplaybackrate" disablePictureInPicture controls src="videos/video1.mp4"></video>
             <div class="video-info">
                 <h3>კუბლას გაპარვა</h3>
-                <p>prison break</p>
-
-                <button class="download-btn" data-src="videos/video1.mp4">⬇ Download</button>
             </div>
         </div>
 
-        <!-- VIDEO 2 -->
         <div class="video-card">
-            <video controls src="videos/video2.mp4"></video>
-
+            <video class="video" controlsList="nodownload noplaybackrate" disablePictureInPicture controls src="videos/video2.mp4"></video>
             <div class="video-info">
                 <h3>Damon Vs Elena</h3>
-                <p>love story</p>
-
-                <button class="download-btn" data-src="videos/video2.mp4">⬇ Download</button>
             </div>
         </div>
 
-        <!-- VIDEO 3 -->
         <div class="video-card">
-            <video controls src="videos/video3.mp4"></video>
-
+            <video class="video" controlsList="nodownload noplaybackrate" disablePictureInPicture controls src="videos/video3.mp4"></video>
             <div class="video-info">
                 <h3>Hokage</h3>
-                <p>ლუკა ყ*ეა</p>
-
-                <button class="download-btn" data-src="videos/video3.mp4">⬇ Download</button>
             </div>
         </div>
 
-        <!-- VIDEO 4 -->
         <div class="video-card">
-            <video controls src="videos/video4.mp4"></video>
-
+            <video class="video" controlsList="nodownload noplaybackrate" disablePictureInPicture controls src="videos/video4.mp4"></video>
             <div class="video-info">
                 <h3>Gigi Vs Ani</h3>
-                <p>კრივი</p>
-
-                <button class="download-btn" data-src="videos/video4.mp4">⬇ Download</button>
             </div>
         </div>
 
-        <!-- VIDEO 5 -->
         <div class="video-card">
-            <video controls src="videos/video5.mp4"></video>
-
+            <video class="video" controlsList="nodownload noplaybackrate" disablePictureInPicture controls src="videos/video5.mp4"></video>
             <div class="video-info">
                 <h3>აბანცულა რანცულა</h3>
-                <p>საბას სიმღერა</p>
-
-                <button class="download-btn" data-src="videos/video5.mp4">⬇ Download</button>
-            </div>
-        </div>
-
-        <!-- VIDEO 6 -->
-        <div class="video-card">
-            <video controls src="videos/video6.mp4"></video>
-
-            <div class="video-info">
-                <h3>ანის ჟღვინტი</h3>
-                <p>ცხვირის გაწმენდა</p>
-
-                <button class="download-btn" data-src="videos/video6.mp4">⬇ Download</button>
-            </div>
-        </div>
-
-        <!-- VIDEO 7 -->
-        <div class="video-card">
-            <video controls src="videos/video7.mp4"></video>
-
-            <div class="video-info">
-                <h3>ანის შესრულება</h3>
-                <p>ცეკვა</p>
-
-                <button class="download-btn" data-src="videos/video7.mp4">⬇ Download</button>
-            </div>
-        </div>
-
-        <!-- VIDEO 8 -->
-        <div class="video-card">
-            <video controls src="videos/video8.mp4"></video>
-
-            <div class="video-info">
-                <h3>Video 8</h3>
-
-                <button class="download-btn" data-src="videos/video8.mp4">⬇ Download</button>
-            </div>
-        </div>
-
-        <!-- VIDEO 9 -->
-        <div class="video-card">
-            <video controls src="videos/video9.mp4"></video>
-
-            <div class="video-info">
-                <h3>Video 9</h3>
-
-                <button class="download-btn" data-src="videos/video9.mp4">⬇ Download</button>
-            </div>
-        </div>
-
-        <!-- VIDEO 10 -->
-        <div class="video-card">
-            <video controls src="videos/video10.mp4"></video>
-
-            <div class="video-info">
-                <h3>Video 10</h3>
-
-                <button class="download-btn" data-src="videos/video10.mp4">⬇ Download</button>
             </div>
         </div>
 
     </div>
 
-    <!-- SEARCH SCRIPT -->
+    <!-- SEARCH -->
     <script>
         function searchVideos() {
 
@@ -161,27 +85,21 @@
         }
     </script>
 
-    <!-- 🔥 DOWNLOAD + ROLE SYSTEM -->
+    <!-- 🔥 ROLE + PROFILE SYSTEM -->
     <script>
+        const email = localStorage.getItem("userEmail");
         const role = localStorage.getItem("userRole");
 
-        document.querySelectorAll(".download-btn").forEach(btn => {
+        document.getElementById("userEmail").textContent = email || "Guest";
+        document.getElementById("userRole").textContent = role || "Visitor";
 
-            // თუ admin არ არის → დამალე download
+        // 🔥 ADMIN ONLY download override protection
+        document.querySelectorAll("video").forEach(v => {
+
             if (role !== "admin") {
-                btn.style.display = "none";
+                v.addEventListener("contextmenu", e => e.preventDefault());
+                v.setAttribute("controlsList", "nodownload noplaybackrate noremoteplayback");
             }
-
-            btn.addEventListener("click", () => {
-
-                if (role === "admin") {
-                    const a = document.createElement("a");
-                    a.href = btn.dataset.src;
-                    a.download = "video.mp4";
-                    a.click();
-                }
-
-            });
 
         });
     </script>
