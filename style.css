@@ -156,11 +156,24 @@ header {
     color: #ffffff;
 }
 
+/* 🔥 ROLE DESIGN ADDED */
 .profile-box #userRole {
     font-size: 12px;
     margin-top: 4px;
-    color: #00f0ff;
     letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* ADMIN STYLE */
+.profile-box #userRole.admin {
+    color: #00ff99;
+    text-shadow: 0 0 10px #00ff99;
+}
+
+/* MEMBER STYLE */
+.profile-box #userRole.member {
+    color: #00f0ff;
+    text-shadow: 0 0 10px #00f0ff;
 }
 
 /* ========================= SEARCH ========================= */
@@ -214,7 +227,7 @@ video {
     display: block;
 }
 
-/* FULLSCREEN FIX (NO STRETCH) */
+/* FULLSCREEN FIX */
 video:fullscreen {
     object-fit: contain !important;
     height: auto !important;
