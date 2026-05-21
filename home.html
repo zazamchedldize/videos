@@ -2,7 +2,7 @@
 <html lang="ka">
 <head>
     <meta charset="UTF-8">
-    <title>Videos</title>
+    <title>Media Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,71 +14,69 @@
     <div id="userRole"></div>
 </div>
 
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <button onclick="showSection('videos')">🎬 Videos</button>
+    <button onclick="showSection('photos')">📸 Photos</button>
+</div>
+
 <header>
-    <h1>🎬 ვიდეოები</h1>
+    <h1>🎬 Media Hub</h1>
 </header>
 
 <!-- SEARCH -->
 <div class="search-box">
-    <input type="text" id="searchInput" onkeyup="searchVideos()" placeholder="Search...">
+    <input type="text" id="searchInput" onkeyup="searchVideos()" placeholder="Search videos...">
 </div>
 
-<!-- VIDEO GRID -->
-<div class="video-grid">
+<!-- ================= VIDEOS ================= -->
+<div class="video-grid section" id="videos">
 
-    <div class="video-card">
-        <video controls src="videos/video1.mp4"></video>
-        <div class="video-info"><h3>კუბლას გაპარვა</h3></div>
-    </div>
+    <!-- შენი 10 ვიდეო -->
+    <div class="video-card"><video controls src="videos/video1.mp4"></video><div class="video-info"><h3>კუბლას გაპარვა</h3></div></div>
+    <div class="video-card"><video controls src="videos/video2.mp4"></video><div class="video-info"><h3>Damon Vs Elena</h3></div></div>
+    <div class="video-card"><video controls src="videos/video3.mp4"></video><div class="video-info"><h3>Hokage</h3></div></div>
+    <div class="video-card"><video controls src="videos/video4.mp4"></video><div class="video-info"><h3>Gigi Vs Ani</h3></div></div>
+    <div class="video-card"><video controls src="videos/video5.mp4"></video><div class="video-info"><h3>აბანცულა რანცულა</h3></div></div>
+    <div class="video-card"><video controls src="videos/video6.mp4"></video><div class="video-info"><h3>ანის boogers</h3></div></div>
+    <div class="video-card"><video controls src="videos/video7.mp4"></video><div class="video-info"><h3>კლოუნი</h3></div></div>
+    <div class="video-card"><video controls src="videos/video8.mp4"></video><div class="video-info"><h3>ენა გაჩუმდი</h3></div></div>
+    <div class="video-card"><video controls src="videos/video9.mp4"></video><div class="video-info"><h3>ვაიმე დედა</h3></div></div>
+    <div class="video-card"><video controls src="videos/video10.mp4"></video><div class="video-info"><h3>ფეროს vs საბა</h3></div></div>
 
-    <div class="video-card">
-        <video controls src="videos/video2.mp4"></video>
-        <div class="video-info"><h3>Damon Vs Elena</h3></div>
-    </div>
+    <!-- +10 ახალი ვიდეო -->
+    <script>
+        for (let i = 11; i <= 20; i++) {
+            document.write(`
+                <div class="video-card">
+                    <video controls src="videos/video${i}.mp4"></video>
+                    <div class="video-info">
+                        <h3>Video ${i}</h3>
+                    </div>
+                </div>
+            `);
+        }
+    </script>
 
-    <div class="video-card">
-        <video controls src="videos/video3.mp4"></video>
-        <div class="video-info"><h3>Hokage</h3></div>
-    </div>
+</div>
 
-    <div class="video-card">
-        <video controls src="videos/video4.mp4"></video>
-        <div class="video-info"><h3>Gigi Vs Ani</h3></div>
-    </div>
+<!-- ================= PHOTOS ================= -->
+<div class="photo-grid section hidden" id="photos">
 
-    <div class="video-card">
-        <video controls src="videos/video5.mp4"></video>
-        <div class="video-info"><h3>აბანცულა რანცულა</h3></div>
-    </div>
-
-    <div class="video-card">
-        <video controls src="videos/video6.mp4"></video>
-        <div class="video-info"><h3>ანის boogers</h3></div>
-    </div>
-
-    <div class="video-card">
-        <video controls src="videos/video7.mp4"></video>
-        <div class="video-info"><h3>კლოუნი</h3></div>
-    </div>
-
-    <div class="video-card">
-        <video controls src="videos/video8.mp4"></video>
-        <div class="video-info"><h3>გააჩუმე ენა არ გესმის?</h3></div>
-    </div>
-
-    <div class="video-card">
-        <video controls src="videos/video9.mp4"></video>
-        <div class="video-info"><h3>ვაიმე დედა</h3></div>
-    </div>
-
-    <div class="video-card">
-        <video controls src="videos/video10.mp4"></video>
-        <div class="video-info"><h3>ფეროს გიო vs საბა</h3></div>
-    </div>
+    <script>
+        for (let i = 1; i <= 60; i++) {
+            document.write(`
+                <div class="photo-card">
+                    <img src="photos/${i}.jpg">
+                </div>
+            `);
+        }
+    </script>
 
 </div>
 
 <script>
+
 /* PROFILE */
 const email = localStorage.getItem("userEmail");
 const role = localStorage.getItem("userRole");
@@ -88,7 +86,6 @@ const roleEl = document.getElementById("userRole");
 document.getElementById("userEmail").textContent = email || "Guest";
 roleEl.textContent = role || "Visitor";
 
-/* ROLE STYLE */
 if (role === "Admin") {
     roleEl.classList.add("admin");
 } else if (role === "Member") {
@@ -98,13 +95,22 @@ if (role === "Admin") {
 /* SEARCH */
 function searchVideos() {
     let input = document.getElementById("searchInput").value.toLowerCase();
-    let cards = document.querySelectorAll(".video-card");
+    let cards = document.querySelectorAll("#videos .video-card");
 
     cards.forEach(card => {
         let title = card.querySelector("h3").textContent.toLowerCase();
         card.style.display = title.includes(input) ? "block" : "none";
     });
 }
+
+/* SWITCH SECTIONS */
+function showSection(section) {
+    document.getElementById("videos").classList.add("hidden");
+    document.getElementById("photos").classList.add("hidden");
+
+    document.getElementById(section).classList.remove("hidden");
+}
+
 </script>
 
 </body>
