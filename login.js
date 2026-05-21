@@ -2,12 +2,12 @@ const USERS = [
     {
         email: "mchedlo@gmail.com",
         password: "1234",
-        role: "admin"
+        role: "Admin"
     },
     {
         email: "member@gmail.com",
         password: "123",
-        role: "user"
+        role: "User"
     }
 ];
 
