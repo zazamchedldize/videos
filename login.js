@@ -7,7 +7,7 @@ const USERS = [
     {
         email: "member@gmail.com",
         password: "123",
-        role: "User"
+        role: "Member"
     }
 ];
 
@@ -24,22 +24,21 @@ function login() {
 
     if (user) {
 
-        // save session
-        localStorage.setItem("userRole", user.role);
         localStorage.setItem("userEmail", user.email);
+        localStorage.setItem("userRole", user.role);
 
         loading.style.display = "flex";
 
         setTimeout(() => {
             window.location.href = "home.html";
-        }, 1500);
+        }, 1200);
 
     } else {
         error.textContent = "პაროლსაც ვერ იმახსოვრებ?";
     }
 }
 
-/* PASSWORD SHOW / HIDE */
+/* PASSWORD SHOW/HIDE */
 function togglePassword() {
     const pass = document.getElementById("password");
     const eye = document.getElementById("eye");
