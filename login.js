@@ -35,7 +35,7 @@ function login() {
         }, 1500);
 
     } else {
-        error.textContent = "არასწორი Email ან Password";
+        error.textContent = "პაროლსაც ვერ იმახსოვრებ?";
     }
 }
 
